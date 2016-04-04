@@ -7,7 +7,7 @@
 #define DEBUG_MODE 1;
 
 // функция, выполняющая задание обработки массива.
-int performArrayTask(long size);
+int performArrayTask(int size);
 
 int getArraySize(_TCHAR* argv[])
 {
@@ -15,7 +15,7 @@ int getArraySize(_TCHAR* argv[])
 	int size;
 
 #ifdef DEBUG_MODE
-	size = 250000000;
+	size = 10;
 #else
 	std::wstringstream sstr(argv[1]);
 	sstr >> size;
@@ -27,12 +27,11 @@ int getArraySize(_TCHAR* argv[])
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	/*if (argc < 2)
+	if (argc < 2)
 	{
-		printf("size undefined\n");
-		system("pause");
+		printf("size undefined");
 		return 1;
-	}*/
+	}
 	
 	int size = getArraySize(argv);
 	int result;
