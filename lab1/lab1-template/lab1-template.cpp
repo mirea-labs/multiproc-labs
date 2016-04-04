@@ -27,12 +27,12 @@ int getArraySize(_TCHAR* argv[])
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	if (argc < 2)
+	/*if (argc < 2)
 	{
 		printf("size undefined");
 		return 1;
 	}
-	
+	*/
 	int size = getArraySize(argv);
 	int result;
 
