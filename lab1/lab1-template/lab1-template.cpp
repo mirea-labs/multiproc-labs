@@ -3,8 +3,11 @@
 
 #include "stdafx.h"
 #include <sstream>
+#include <iostream>
 
 #define DEBUG_MODE 1;
+
+using namespace std;
 
 // функция, выполняющая задание обработки массива.
 int performArrayTask(int size);
@@ -15,7 +18,7 @@ int getArraySize(_TCHAR* argv[])
 	int size;
 
 #ifdef DEBUG_MODE
-	size = 10;
+	size = 100000000;
 #else
 	std::wstringstream sstr(argv[1]);
 	sstr >> size;
@@ -27,11 +30,11 @@ int getArraySize(_TCHAR* argv[])
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	if (argc < 2)
+	/*if (argc < 2)
 	{
 		printf("size undefined");
 		return 1;
-	}
+	}*/
 	
 	int size = getArraySize(argv);
 	int result;
@@ -53,3 +56,5 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	return result;
 }
+
+
