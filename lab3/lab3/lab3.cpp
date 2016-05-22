@@ -14,7 +14,7 @@ const int NUMBER_COUNT = 100;
 
 // предварительное объявление функций
 void GenerateNumbers();
-void ProcessNumbers(LPVOID context);
+void ProcessNumbers(int*);
 
 // Точка входа
 int _tmain(int argc, _TCHAR* argv[])
@@ -42,7 +42,7 @@ void GenerateNumbers()
 	}
 }
 
-void ProcessNumbers(LPVOID context)
+void ProcessNumbers(int* sumAddress)
 {
 	while (numbers.size() != 0)
 	{
@@ -51,8 +51,6 @@ void ProcessNumbers(LPVOID context)
 		cout << "Processing element " << current << endl;
 		// удалил его из очереди
 		numbers.pop();
-		// привел переменную контекста к нужному типу
-		int* sumAddress = static_cast<int*>(context);
 		// прибавил к переменной, накапливающей сумму
 		*sumAddress+=current;
 		// жду две секунды (имитация долгой работы)
