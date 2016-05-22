@@ -11,6 +11,7 @@ using namespace std;
 
 queue<int> numbers;
 const int NUMBER_COUNT = 100;
+volatile bool GeneratorCompleted = FALSE;
 
 // предварительное объявление функций
 void GenerateNumbers();
@@ -40,20 +41,24 @@ void GenerateNumbers()
 		// жду две секунды (имитация долгой работы)
 		Sleep(2000);
 	}
+	GeneratorCompleted = TRUE;
 }
 
 void ProcessNumbers(int* sumAddress)
 {
-	while (numbers.size() != 0)
+	while (!GeneratorCompleted)
 	{
-		// прочитал очередной элемент из очереди
-		int current = numbers.front();
-		cout << "Processing element " << current << endl;
-		// удалил его из очереди
-		numbers.pop();
-		// прибавил к переменной, накапливающей сумму
-		*sumAddress+=current;
-		// жду две секунды (имитация долгой работы)
-		Sleep(2000);
+		while (numbers.size() != 0)
+		{
+			// прочитал очередной элемент из очереди
+			int current = numbers.front();
+			cout << "Processing element " << current << endl;
+			// удалил его из очереди
+			numbers.pop();
+			// прибавил к переменной, накапливающей сумму
+			*sumAddress += current;
+			// жду две секунды (имитация долгой работы)
+			Sleep(1000);
+		}
 	}
 }
