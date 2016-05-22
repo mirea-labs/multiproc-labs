@@ -58,7 +58,12 @@ void ProcessNumbers(int* sumAddress)
 			// прибавил к переменной, накапливающей сумму
 			*sumAddress += current;
 			// жду две секунды (имитация долгой работы)
-			Sleep(1000);
+			Sleep(2000);
 		}
 	}
 }
+// Подсказка о том, как выглядит функция - тело потока
+/*DWORD WINAPI ThreadBody(LPVOID context)
+{
+	return 0;
+}*/
