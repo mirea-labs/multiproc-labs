@@ -3,3 +3,4 @@ lab1/lab1.sdf
 *.opensdf
 lab1/Debug/
 lab1/lab1-template/Debug/
+/lab1/.vs/lab1/v14/*.suo
