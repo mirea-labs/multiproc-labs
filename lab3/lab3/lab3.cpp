@@ -13,7 +13,7 @@ queue<int> numbers;
 const int NUMBER_COUNT = 100;
 
 // предварительное объявление функций
-void GenerateNumbers(LPVOID);
+void GenerateNumbers();
 void ProcessNumbers(LPVOID context);
 
 // Точка входа
@@ -24,13 +24,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	// сброс генератора случайных чисел (при необходимости).
 	//srand(200);
 
-	GenerateNumbers(NULL);
+	GenerateNumbers();
 	ProcessNumbers(&sum);
 
 	return 0;
 }
 
-void GenerateNumbers(LPVOID)
+void GenerateNumbers()
 {
 	for (size_t i = 0; i < NUMBER_COUNT; i++)
 	{
